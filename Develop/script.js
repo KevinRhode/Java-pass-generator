@@ -1,8 +1,43 @@
-// Assignment code here
 
+//Basic password selection
+var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+// include special char
+var chkIncludeSpecialChar = document.getElementById("special-char").checked;
+// include number
+var chkIncludeNumber = document.getElementById("number").checked;
+// set length have default
+var genPassLength = document.getElementById("pass-length");
+
+// Assignment code here
+function generatePassword(){
+
+// include special char - if changed
+  chkIncludeSpecialChar = document.getElementById("special-char").checked;
+// include number - if changed
+  chkIncludeNumber = document.getElementById("number").checked;
+
+
+  if (chkIncludeSpecialChar) {
+    charset += " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+  }
+
+  if (chkIncludeNumber) {
+    charset += "0123456789"
+  }
+  var retValue = "";
+  for (let index = 0 , fit = charset.length; index < genPassLength.value; index++) {
+        retValue += charset.charAt(Math.floor(Math.random() * fit))
+  }
+
+  // we are returning someting to the var password
+  return retValue;
+
+}
+
+
 
 // Write password to the #password input
 function writePassword() {
