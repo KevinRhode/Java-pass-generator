@@ -1,6 +1,4 @@
 
-//Basic password selection
-var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -13,6 +11,10 @@ var genPassLength = document.getElementById("pass-length");
 
 // Assignment code here
 function generatePassword(){
+
+  //Basic password selection
+var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
+
 
 // include special char - if changed
   chkIncludeSpecialChar = document.getElementById("special-char").checked;
