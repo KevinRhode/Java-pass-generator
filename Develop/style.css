@@ -71,6 +71,7 @@ header {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+  padding-top: 6px;
 }
 
 .card-footer::after {
