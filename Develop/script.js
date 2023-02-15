@@ -6,6 +6,8 @@ var generateBtn = document.querySelector("#generate");
 var chkIncludeSpecialChar = document.getElementById("special-char").checked;
 // include number
 var chkIncludeNumber = document.getElementById("number").checked;
+//include space 
+var chkIncludeSpace = document.getElementById("space").checked;
 // set length have default
 var genPassLength = document.getElementById("pass-length");
 
@@ -20,14 +22,19 @@ var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
   chkIncludeSpecialChar = document.getElementById("special-char").checked;
 // include number - if changed
   chkIncludeNumber = document.getElementById("number").checked;
-
+//include space - if changed
+  chkIncludeSpace = document.getElementById("space").checked;
 
   if (chkIncludeSpecialChar) {
-    charset += " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+    charset += "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
   }
 
   if (chkIncludeNumber) {
-    charset += "0123456789"
+    charset += "0123456789";
+  }
+
+  if (chkIncludeSpace) {
+    charset += " ";
   }
   var retValue = "";
   for (let index = 0 , fit = charset.length; index < genPassLength.value; index++) {
