@@ -2,29 +2,22 @@
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-// include special char
-var chkIncludeSpecialChar = document.getElementById("special-char").checked;
-// include number
-var chkIncludeNumber = document.getElementById("number").checked;
-//include space 
-var chkIncludeSpace = document.getElementById("space").checked;
-// set length have default
-var genPassLength = document.getElementById("pass-length");
-
 // Assignment code here
 function generatePassword(){
-
   //Basic password selection - local ref to recreate so no string options are still present
-var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
+  var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
+  // include special char
+  var chkIncludeSpecialChar = document.getElementById("special-char").checked;
+  // include number
+  var chkIncludeNumber = document.getElementById("number").checked;
+  //include space 
+  var chkIncludeSpace = document.getElementById("space").checked;
+  // set length have default
+  var genPassLength = document.getElementById("pass-length");
 
-
-// include special char - if changed
-  chkIncludeSpecialChar = document.getElementById("special-char").checked;
-// include number - if changed
-  chkIncludeNumber = document.getElementById("number").checked;
-//include space - if changed
-  chkIncludeSpace = document.getElementById("space").checked;
-
+  if (genPassLength.value>500) {
+    return "Limit reached, lower password length";
+  }
   //if true include special char in the available char's of the random password 
   if (chkIncludeSpecialChar) {
     charset += "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
