@@ -44,6 +44,7 @@ var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
       //math.random - can be equal or greater then 0, and less then 1.
       //we use floor to get whole int
       //random * fit to give value between start and end of string. as 0 is starting point
+      //charAt string method to return char on index value
       retValue += charset.charAt(Math.floor(Math.random() * fit))
   }
 
