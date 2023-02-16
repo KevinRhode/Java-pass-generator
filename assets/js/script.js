@@ -1,9 +1,84 @@
+//choose length
 
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 // Assignment code here
 function generatePassword(){
+
+// GIVEN I need a new, secure password
+// WHEN I click the button to generate a password
+var condition = true;
+do {
+  let lengthOfPassword = parseInt(prompt("Please enter the length, must be between 8 and 128. Thank you"));
+
+  if (lengthOfPassword >= 8 && lengthOfPassword <= 128) {
+      //find and select the element with id password
+      var lengthValue = document.querySelector("#pass-length");
+      //set the .value of the element to password
+      lengthValue.value = lengthOfPassword;
+      condition = false;
+  }
+
+
+
+
+} while (condition);
+
+
+
+
+
+
+
+
+
+
+
+
+// if ((lengthOfPassword >= 8 && lengthOfPassword <= 128) && isNaN(lengthOfPassword)) {
+
+  
+// }
+// // THEN I am presented with a series of prompts for password criteria
+//prompt function     
+// WHEN prompted for password criteria
+
+// THEN I select which criteria to include in the password
+
+// WHEN prompted for the length of the password
+
+// THEN I choose a length of at least 8 characters and no more than 128 characters
+// WHEN asked for character types to include in the password
+
+// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+
+// WHEN I answer each prompt
+
+// THEN my input should be validated and at least one character type should be selected
+
+// WHEN all prompts are answered
+
+// THEN a password is generated that matches the selected criteria
+
+// WHEN the password is generated
+
+// THEN the password is either displayed in an alert or written to the page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //Basic password selection - local ref to recreate so no string options are still present
   var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
   // include special char
@@ -15,7 +90,7 @@ function generatePassword(){
   // set length have default
   var genPassLength = document.getElementById("pass-length");
 
-  if (genPassLength.value>500) {
+  if (genPassLength.value>128) {
     return "Limit reached, lower password length";
   }
   //if true include special char in the available char's of the random password 

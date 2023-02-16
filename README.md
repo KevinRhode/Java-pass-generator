@@ -53,3 +53,8 @@ To create a small javascript program to help me randomly select a password for s
     -if checked include space character in the possiable generated password 
 
 ## Credits
+
+https://stackoverflow.com/questions/1497481/javascript-password-generator
+
+https://www.w3schools.com/js/js_popup.asp
+
