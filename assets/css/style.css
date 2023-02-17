@@ -73,6 +73,9 @@ header {
   justify-content: space-around;
   padding-top: 6px;
 }
+.options #pass-length{
+  max-width: 50px;
+}
 
 .card-footer::after {
   content: " ";

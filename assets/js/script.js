@@ -2,46 +2,16 @@
 
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
 // Assignment code here
 function generatePassword(){
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
-var condition = true;
-do {
-  let lengthOfPassword = parseInt(prompt("Please enter the length, must be between 8 and 128. Thank you"));
 
-  if (lengthOfPassword >= 8 && lengthOfPassword <= 128) {
-      //find and select the element with id password
-      var lengthValue = document.querySelector("#pass-length");
-      //set the .value of the element to password
-      lengthValue.value = lengthOfPassword;
-      condition = false;
-  }
-
-
-
-
-} while (condition);
-
-
-
-
-
-
-
-
-
-
-
-
-// if ((lengthOfPassword >= 8 && lengthOfPassword <= 128) && isNaN(lengthOfPassword)) {
-
-  
-// }
 // // THEN I am presented with a series of prompts for password criteria
 //prompt function     
+
 // WHEN prompted for password criteria
 
 // THEN I select which criteria to include in the password
@@ -49,9 +19,70 @@ do {
 // WHEN prompted for the length of the password
 
 // THEN I choose a length of at least 8 characters and no more than 128 characters
+
+let condition = true;
+do {
+
+  let lengthOfPassword = parseInt(prompt("Please enter the length, must be between 8 and 128. Thank you"));
+  if (lengthOfPassword === null) {
+    return "Please complete the Prompts"
+  }
+  if (lengthOfPassword != NaN) {
+    if (lengthOfPassword >= 8 && lengthOfPassword <= 128) {
+      //find and select the element with id password
+      var lengthValue = document.querySelector("#pass-length");
+      //set the .value of the element to password
+      lengthValue.value = lengthOfPassword;
+      condition = false;
+
+  } else{    
+    
+  }
+  }
+ 
+
+} while (condition);
+
+
 // WHEN asked for character types to include in the password
 
 // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+let lowercase="abcdefghijklmopqrstuvwxyz";
+let uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let numeric="0123456789";
+let special="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
+let questions = ["Include Uppercase? ","Include Lowercase? ","Include Numbers? ","Include Special Characters? "]
+let charsets = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmopqrstuvwxyz","0123456789"," !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"]
+
+
+for (let index = 0; index < questions.length; index++) {
+
+  let conditionForCharacters = true;
+
+do {
+
+  let currentQuestion = prompt(questions[index]);
+  if (currentQuestion === null) {
+    return "Please complete the Prompts"
+  }
+
+  if (currentQuestion.toLowerCase() == "y") {
+    
+
+  } else if(currentQuestion.toLowerCase() == "n"){
+
+  }
+
+  
+
+
+
+} while (conditionForCharacters);
+
+}  
+
+
 
 // WHEN I answer each prompt
 
