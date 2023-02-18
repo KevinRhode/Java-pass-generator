@@ -1,4 +1,4 @@
-# Java-Pass-Generater
+# Javascript-Pass-Gen
 
 ## User Story
 AS AN employee with access to sensitive data  
