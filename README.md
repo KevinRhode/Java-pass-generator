@@ -23,7 +23,7 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page  
 
 ## Description
-To create a small javascript program to help me randomly select a password for security. Not involing my tendentices should help with people not being able to guess it. I build this program to incorporate javascript into a webpage containing html and Css in a simple example. Its solves my indecisiveness of chooseing password to use with accounts. I learned querySelector in java, with selecting an ID.
+To create a small javascript program to help me randomly select a password for security. Not involing my tendentices should help with people not being able to guess it. I build this program to incorporate javascript into a webpage containing html and Css in a simple example. Its solves my indecisiveness of chooseing password to use with accounts. I learned querySelector in javascript, with selecting an ID.
 
 ## Usage
 
@@ -35,16 +35,19 @@ To create a small javascript program to help me randomly select a password for s
 
 * password length:
 
-  -Set the length of your generated password. range 8-128
+  -Set the length of your generated password. range 8-128  
+  -image in asset/images folder
  
 * include special char:
 
    
   -if checked include special characters in the possiable generated password  
-  -[Link to Doc of Characters](https://owasp.org/www-community/password-special-characters)
+  -[Link to Doc of Characters](https://owasp.org/www-community/password-special-characters)  
+  -image in asset/images folder
 * include numbers
       
-    -if checked include numbers in the possiable generated password 
+    -if checked include numbers in the possiable generated password   
+    -image in asset/images folder
 
 
 ## Credits
