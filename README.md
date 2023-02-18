@@ -27,15 +27,16 @@ To create a small javascript program to help me randomly select a password for s
 
 ## Usage
 
-[Link to Deployed Webpage](https://kevinrhode.github.io/Java-pass-generator/)
+[Link to Deployed Webpage](https://kevinrhode.github.io/Javascript-pass-gen/)
 
-[Link to Repo](https://github.com/KevinRhode/Java-pass-generator)
+[Link to Repo](https://github.com/KevinRhode/Javascript-pass-gen)
 
-![image of password generator](./assets/images/java_passgen.png)
+![image of password generator](./assets/images/default.png)
 
 * password length:
 
   -Set the length of your generated password. range 8-128
+ 
 * include special char:
 
    

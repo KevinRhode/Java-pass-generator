@@ -5,30 +5,6 @@ let generateBtn = document.querySelector("#generate");
 // Assignment code here
 function generatePassword(){
 // condition bool of number input
-let condition = true;
-do {
-
-  let lengthOfPassword = parseInt(prompt("Please enter the length, must be between 8 and 128. Thank you"));
-  if (lengthOfPassword === null) {
-    return "Please complete the Prompts"
-  }
-  if (lengthOfPassword != NaN) {
-    if (lengthOfPassword >= 8 && lengthOfPassword <= 128) {
-      //find and select the element with id password
-      var lengthValue = document.querySelector("#pass-length");
-      //set the .value of the element to password
-      lengthValue.value = lengthOfPassword;
-      condition = false;
-
-  } else{  
-    //tell user what they did wrong
-    alert("Enter a Number greater or equal to 8 and equal to or less then 128");  
-    
-  }
-  }
- 
-
-} while (condition);
 
 let questions = ["Include Uppercase? Enter y/n","Include Lowercase? Enter y/n","Include Numbers? Enter y/n","Include Special Characters? Enter y/n"];
 let charsets = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmopqrstuvwxyz","0123456789"," !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"];
@@ -77,6 +53,34 @@ do {
   }
 } while (!atLeastOneSelected);
  
+// moved after rereading read me. 
+let condition = true;
+do {
+  //parse int to vadlidate number NaN if not a number
+  let lengthOfPassword = parseInt(prompt("Please enter the length, must be between 8 and 128. Thank you"));
+  if (lengthOfPassword === null) {
+    return "Please complete the Prompts"
+  }
+  if (lengthOfPassword != NaN) {
+    if (lengthOfPassword >= 8 && lengthOfPassword <= 128) {
+      //find and select the element with id password
+      var lengthValue = document.querySelector("#pass-length");
+      //set the .value of the element to password
+      lengthValue.value = lengthOfPassword;
+      condition = false;
+
+  } else{  
+    //tell user what they did wrong
+    alert("Enter a Number greater or equal to 8 and equal to or less then 128");  
+    
+  }
+  }
+ 
+
+} while (condition);
+
+
+
   let genPassLength = document.querySelector("#pass-length");
   
   // let cheetsheet
@@ -92,10 +96,13 @@ do {
   // to set on second pass if you change your option
   chkIncludeNumber["checked"] = false;
 
+  
+//logic to tell if to check element
 if (returnCharSet.includes(charsets[2])) {
   //set to checked in return includes array element
   chkIncludeNumber["checked"] = true;
 }
+//logic to tell if to check element
 if (returnCharSet.includes(charsets[3])) {
   //set to checked in return includes array element
   chkIncludeSpecialChar["checked"] = true;
