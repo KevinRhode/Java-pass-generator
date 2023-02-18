@@ -47,40 +47,96 @@ do {
 // WHEN asked for character types to include in the password
 
 // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-let lowercase="abcdefghijklmopqrstuvwxyz";
-let uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let numeric="0123456789";
-let special="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-
-let questions = ["Include Uppercase? ","Include Lowercase? ","Include Numbers? ","Include Special Characters? "]
-let charsets = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmopqrstuvwxyz","0123456789"," !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"]
+// let lowercase="abcdefghijklmopqrstuvwxyz";
+// let uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// let numeric="0123456789";
+// let special="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
 
-for (let index = 0; index < questions.length; index++) {
+// var passwordCharacterOptionCards = {
+//   type:"lowercase",
+//   question:"Include lowercase? ",
 
-  let conditionForCharacters = true;
+//   charset:"abcdefghijklmopqrstuvwxyz",
+//   getAnswer:function(){
+//     do {
 
-do {
+//       let answer = prompt(this.question);
+//       if (answer.toLowerCase() === "y") {
 
-  let currentQuestion = prompt(questions[index]);
-  if (currentQuestion === null) {
-    return "Please complete the Prompts"
-  }
+//         // add 
 
-  if (currentQuestion.toLowerCase() == "y") {
-    
 
-  } else if(currentQuestion.toLowerCase() == "n"){
 
-  }
+//       }else if (answer.toLowerCase() === "n") {
 
+//         // do not add
+
+//       }else{
+
+//         // user did something
+
+//       }
+      
+//     } while (condition);
+//   }
   
+// };
 
 
 
-} while (conditionForCharacters);
 
-}  
+
+
+let lowercase = false;
+let uppercase = false;
+let numeric = false;
+let special = false;
+
+let questions = ["Include Uppercase? Enter y/n","Include Lowercase? Enter y/n","Include Numbers? Enter y/n","Include Special Characters? Enter y/n"];
+
+let charsets = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmopqrstuvwxyz","0123456789"," !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"];
+let returnCharSet = "";
+let atLeastOneSelected =false;
+do {
+  switch (returnCharSet) {    
+  case "":
+    for (let index = 0; index < questions.length; index++) {  
+    let conditionForCharacters = true;  
+    do {
+    
+      let currentQuestion = prompt(questions[index]);
+      if (currentQuestion === null) {
+        return "Please complete the Prompts"
+      }
+      //validate   
+    
+      if (currentQuestion.toLowerCase() == "y") {        
+    
+        returnCharSet += charsets[index];
+        conditionForCharacters = false;
+        atLeastOneSelected = true;
+    
+      } else if(currentQuestion.toLowerCase() == "n"){
+        conditionForCharacters = false;
+      }else{
+        alert("Enter only y or n")
+      }
+    
+    } while (conditionForCharacters);
+  
+  }  
+    break;
+    
+    default:
+      break;
+  }
+} while (!atLeastOneSelected);
+
+
+
+
+
 
 
 
@@ -99,52 +155,54 @@ do {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  //Basic password selection - local ref to recreate so no string options are still present
-  var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
+  // //Basic password selection - local ref to recreate so no string options are still present
+  // var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
+  // // include special char
+  // var chkIncludeSpecialChar = document.getElementById("special-char").checked;
+  // // include number
+  // var chkIncludeNumber = document.getElementById("number").checked;
+  // //include space 
+  // var chkIncludeSpace = document.getElementById("space").checked;
+  // // set length have default
+  let genPassLength = document.querySelector("#pass-length");
+  // let charsets = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmopqrstuvwxyz","0123456789"," !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"];
   // include special char
-  var chkIncludeSpecialChar = document.getElementById("special-char").checked;
-  // include number
-  var chkIncludeNumber = document.getElementById("number").checked;
-  //include space 
-  var chkIncludeSpace = document.getElementById("space").checked;
-  // set length have default
-  var genPassLength = document.getElementById("pass-length");
+  let chkIncludeSpecialChar = document.querySelector("#special-char");
+  // // include number
+  let chkIncludeNumber = document.querySelector("#number");
+if (returnCharSet.includes(charsets[2])) {
+  chkIncludeNumber["checked"] = true;
+}
+if (returnCharSet.includes(charsets[3])) {
+  chkIncludeSpecialChar["checked"] = true;
+}
 
-  if (genPassLength.value>128) {
-    return "Limit reached, lower password length";
-  }
-  //if true include special char in the available char's of the random password 
-  if (chkIncludeSpecialChar) {
-    charset += "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-  }
-  //if true include numbers in the available char's of the random password 
-  if (chkIncludeNumber) {
-    charset += "0123456789";
-  }
-  //if true include space in the available char's of the random password 
-  if (chkIncludeSpace) {
-    charset += " ";
-  }
-  //value of the password to be returned
-  var retValue = "";
 
-  for (let index = 0 , fit = charset.length; index < genPassLength.value; index++) {
+
+  // if (genPassLength.value>128) {
+  //   return "Limit reached, lower password length";
+  // }
+  // //if true include special char in the available char's of the random password 
+  // if (chkIncludeSpecialChar) {
+  //   charset += "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+  // }
+  // //if true include numbers in the available char's of the random password 
+  // if (chkIncludeNumber) {
+  //   charset += "0123456789";
+  // }
+  // //if true include space in the available char's of the random password 
+  // if (chkIncludeSpace) {
+  //   charset += " ";
+  // }
+  // //value of the password to be returned
+  let retValue = "";
+
+  for (let index = 0 , fit = returnCharSet.length; index < genPassLength.value; index++) {
       //math.random - can be equal or greater then 0, and less then 1.
       //we use floor to get whole int
       //random * fit to give value between start and end of string. as 0 is starting point
       //charAt string method to return char on index value
-      retValue += charset.charAt(Math.floor(Math.random() * fit))
+      retValue += returnCharSet.charAt(Math.floor(Math.random() * fit))
   }
 
   // we are returning someting to the var password
