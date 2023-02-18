@@ -1,25 +1,10 @@
-//choose length
-
 
 // Get references to the #generate element
 let generateBtn = document.querySelector("#generate");
+
 // Assignment code here
 function generatePassword(){
-
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-
-// // THEN I am presented with a series of prompts for password criteria
-//prompt function     
-
-// WHEN prompted for password criteria
-
-// THEN I select which criteria to include in the password
-
-// WHEN prompted for the length of the password
-
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-
+// condition bool of number input
 let condition = true;
 do {
 
@@ -35,7 +20,9 @@ do {
       lengthValue.value = lengthOfPassword;
       condition = false;
 
-  } else{    
+  } else{  
+    //tell user what they did wrong
+    alert("Enter a Number greater or equal to 8 and equal to or less then 128");  
     
   }
   }
@@ -43,157 +30,77 @@ do {
 
 } while (condition);
 
-
-// WHEN asked for character types to include in the password
-
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// let lowercase="abcdefghijklmopqrstuvwxyz";
-// let uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// let numeric="0123456789";
-// let special="!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-
-
-// var passwordCharacterOptionCards = {
-//   type:"lowercase",
-//   question:"Include lowercase? ",
-
-//   charset:"abcdefghijklmopqrstuvwxyz",
-//   getAnswer:function(){
-//     do {
-
-//       let answer = prompt(this.question);
-//       if (answer.toLowerCase() === "y") {
-
-//         // add 
-
-
-
-//       }else if (answer.toLowerCase() === "n") {
-
-//         // do not add
-
-//       }else{
-
-//         // user did something
-
-//       }
-      
-//     } while (condition);
-//   }
-  
-// };
-
-
-
-
-
-
-let lowercase = false;
-let uppercase = false;
-let numeric = false;
-let special = false;
-
 let questions = ["Include Uppercase? Enter y/n","Include Lowercase? Enter y/n","Include Numbers? Enter y/n","Include Special Characters? Enter y/n"];
-
 let charsets = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmopqrstuvwxyz","0123456789"," !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"];
 let returnCharSet = "";
+//AC - ATLEAST one must be accepted to continue on
 let atLeastOneSelected =false;
 do {
+  // checks the return to choose an action. 
   switch (returnCharSet) {    
   case "":
+
     for (let index = 0; index < questions.length; index++) {  
-    let conditionForCharacters = true;  
-    do {
+      let conditionForCharacters = true;  
+      do {
     
-      let currentQuestion = prompt(questions[index]);
-      if (currentQuestion === null) {
-        return "Please complete the Prompts"
-      }
-      //validate   
+        let currentQuestion = prompt(questions[index]);
+        if (currentQuestion === null) {
+          return "Please complete the Prompts"
+        }
+        //validate   
+      
+        if (currentQuestion.toLowerCase() == "y") {        
+      
+          returnCharSet += charsets[index];
+          //to show that a condition to include was choosen
+          conditionForCharacters = false;
+          //tells program that atleast one was added to return
+          atLeastOneSelected = true;
+      
+        } else if(currentQuestion.toLowerCase() == "n"){
+          //to show that a condition to not include was choosen
+          conditionForCharacters = false;
+        }else{
+          //tell the user what you need
+          alert("Enter only y or n")
+        }
     
-      if (currentQuestion.toLowerCase() == "y") {        
-    
-        returnCharSet += charsets[index];
-        conditionForCharacters = false;
-        atLeastOneSelected = true;
-    
-      } else if(currentQuestion.toLowerCase() == "n"){
-        conditionForCharacters = false;
-      }else{
-        alert("Enter only y or n")
-      }
-    
-    } while (conditionForCharacters);
+      } while (conditionForCharacters);
   
-  }  
+    }  
+
     break;
     
     default:
       break;
   }
 } while (!atLeastOneSelected);
-
-
-
-
-
-
-
-
-// WHEN I answer each prompt
-
-// THEN my input should be validated and at least one character type should be selected
-
-// WHEN all prompts are answered
-
-// THEN a password is generated that matches the selected criteria
-
-// WHEN the password is generated
-
-// THEN the password is either displayed in an alert or written to the page
-
-
-
-
-  // //Basic password selection - local ref to recreate so no string options are still present
-  // var charset="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
-  // // include special char
-  // var chkIncludeSpecialChar = document.getElementById("special-char").checked;
-  // // include number
-  // var chkIncludeNumber = document.getElementById("number").checked;
-  // //include space 
-  // var chkIncludeSpace = document.getElementById("space").checked;
-  // // set length have default
+ 
   let genPassLength = document.querySelector("#pass-length");
+  
+  // let cheetsheet
   // let charsets = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmopqrstuvwxyz","0123456789"," !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"];
-  // include special char
+
+  // include special char in pass
   let chkIncludeSpecialChar = document.querySelector("#special-char");
-  // // include number
+  // to set on second pass if you change your option
+  chkIncludeSpecialChar["checked"] = false;
+
+  // include number in pass
   let chkIncludeNumber = document.querySelector("#number");
+  // to set on second pass if you change your option
+  chkIncludeNumber["checked"] = false;
+
 if (returnCharSet.includes(charsets[2])) {
+  //set to checked in return includes array element
   chkIncludeNumber["checked"] = true;
 }
 if (returnCharSet.includes(charsets[3])) {
+  //set to checked in return includes array element
   chkIncludeSpecialChar["checked"] = true;
 }
 
-
-
-  // if (genPassLength.value>128) {
-  //   return "Limit reached, lower password length";
-  // }
-  // //if true include special char in the available char's of the random password 
-  // if (chkIncludeSpecialChar) {
-  //   charset += "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-  // }
-  // //if true include numbers in the available char's of the random password 
-  // if (chkIncludeNumber) {
-  //   charset += "0123456789";
-  // }
-  // //if true include space in the available char's of the random password 
-  // if (chkIncludeSpace) {
-  //   charset += " ";
-  // }
   // //value of the password to be returned
   let retValue = "";
 
@@ -209,8 +116,6 @@ if (returnCharSet.includes(charsets[3])) {
   return retValue;
 
 }
-
-
 
 // Write password to the #password input
 

@@ -4,8 +4,8 @@
 AS AN employee with access to sensitive data  
 I WANT to randomly generate a password that meets certain criteria  
 SO THAT I can create a strong password that provides greater security
-## Acceptance Criteria
 
+## Acceptance Criteria
 GIVEN I need a new, secure password  
 WHEN I click the button to generate a password  
 THEN I am presented with a series of prompts for password criteria  
@@ -23,7 +23,6 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page  
 
 ## Description
-
 To create a small javascript program to help me randomly select a password for security. Not involing my tendentices should help with people not being able to guess it. I build this program to incorporate javascript into a webpage containing html and Css in a simple example. Its solves my indecisiveness of chooseing password to use with accounts. I learned querySelector in java, with selecting an ID.
 
 ## Usage
@@ -36,21 +35,16 @@ To create a small javascript program to help me randomly select a password for s
 
 * password length:
 
-  -Set the length of your generated password. range 5-64
+  -Set the length of your generated password. range 8-128
 * include special char:
 
-  -default: Checked   
+   
   -if checked include special characters in the possiable generated password  
   -[Link to Doc of Characters](https://owasp.org/www-community/password-special-characters)
 * include numbers
+      
+    -if checked include numbers in the possiable generated password 
 
-    -default: Checked   
-    -if checked include special characters in the possiable generated password 
-
-* include space
-
-    -default: Unchecked   
-    -if checked include space character in the possiable generated password 
 
 ## Credits
 
